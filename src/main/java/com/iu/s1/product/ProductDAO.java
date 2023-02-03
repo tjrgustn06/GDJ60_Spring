@@ -1,6 +1,7 @@
 package com.iu.s1.product;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -18,29 +19,30 @@ public class ProductDAO {
 	//----------getProductdetail--------
 	
 	public ProductDTO getProductdetail(ProductDTO productDTO) throws Exception{
+		
 		Connection con = DBConnection.getConnection();
+		
 		String sql = "SELECT * FROM PRODUCT WHERE PRODUCTNUM=?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		st.setInt(1, productDTO.getProductnum());
+		st.setInt(1, productDTO.getProductNum());
 		
 		ResultSet rs = st.executeQuery();
 		
 		if(rs.next()) {
 			productDTO = new ProductDTO();
-			productDTO.setProductnum(rs.getInt("PRODUCTNUM"));
-			productDTO.setProductname(rs.getString("PRODUCTNAME"));
-			productDTO.setProductjumsu(rs.getDouble("PRODUCTJUMSU"));
-			productDTO.setProductdetail(rs.getString("PRODUCTDETAIL"));		
+			productDTO.setProductNum(rs.getInt("PRODUCTNUM"));
+			productDTO.setProductName(rs.getString("PRODUCTNAME"));
+			productDTO.setProductJumsu(rs.getDouble("PRODUCTJUMSU"));
+			productDTO.setProductDetail(rs.getString("PRODUCTDETAIL"));		
 		}else {
 			productDTO=null;
 		}
 		
 		DBConnection.disConnection(st, con, rs);
-		return productDTO;
 		
-		
+		return productDTO;	
 	}
 	
 	
@@ -137,9 +139,9 @@ public class ProductDAO {
 		
 		while(rs.next()) {
 			ProductDTO productDTO = new ProductDTO();
-			productDTO.setProductnum(rs.getInt("PRODUCTNUM"));
-			productDTO.setProductname(rs.getString("PRODUCTNAME"));
-			productDTO.setProductjumsu(rs.getDouble("PRODUCTJUMSU"));
+			productDTO.setProductNum(rs.getInt("PRODUCTNUM"));
+			productDTO.setProductName(rs.getString("PRODUCTNAME"));
+			productDTO.setProductJumsu(rs.getDouble("PRODUCTJUMSU"));
 			
 			ar.add(productDTO);
 			
@@ -165,11 +167,11 @@ public class ProductDAO {
 	
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		st.setInt(1, productDTO.getProductnum());
-		st.setString(2, productDTO.getProductname());
-		st.setString(3, productDTO.getProductdetail());
+		st.setInt(1, productDTO.getProductNum());
+		st.setString(2, productDTO.getProductName());
+		st.setString(3, productDTO.getProductDetail());
 		//st.setDouble(4, productDTO.getProductjumsu());
-	
+		
 		
 		int result = st.executeUpdate();
 		
@@ -179,17 +181,5 @@ public class ProductDAO {
 		
 	}
 	
-	private static void main(String[] args) {
-		ProductDAO productDAO = new ProductDAO();
-		try {
-		
-			List<ProductDTO> ar = productDAO.getProductList();
-		
-			System.out.println();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-				
-	}
 
 }

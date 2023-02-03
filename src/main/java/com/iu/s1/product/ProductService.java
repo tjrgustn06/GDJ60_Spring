@@ -13,31 +13,32 @@ public class ProductService {
 	@Autowired
 	private ProductDAO productDAO = new ProductDAO(); 
 	
+	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception{
+		return productDAO.getProductdetail(productDTO);
+	}
 	
+	public List<ProductDTO> getProductList() throws Exception{
+		return productDAO.getProductList();
+	}
 	
 	
 	public int setAddProduct (ProductDTO productDTO, List<ProductOptionDTO> ar) throws Exception {
 		//prdoct , option 등록
 		int productNum = productDAO.getProductNum();
-		productDTO.setProductnum(productNum);
+		productDTO.setProductNum(productNum);
 		int result = productDAO.SetAddProduct(productDTO);
+		
+		if(ar !=null) {
 		
 		for(ProductOptionDTO productOptionDTO:ar) {
 			productOptionDTO.setProductNum(productNum);
 			result = productDAO.setAddProductOption(productOptionDTO);		
+		}
 		}
 		
 		return result;
 	}
 
 
-
-
-	public List<ProductDTO> getProductList() {
-		
-		
-		return null;
-	}
-	
 
 }

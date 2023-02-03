@@ -2,36 +2,38 @@ package com.iu.s1.product;
 
 public class ProductDTO {
 	
-	private Integer productnum;
-	private String productname;
-	private String productdetail;
-	private double productjumsu;
+	private Integer productNum;
+	private String productName;
+	private String productDetail;
+	private Double productJumsu;
 	
 	
-	public Integer getProductnum() {
-		return productnum;
+	public Integer getProductNum() {
+		return productNum;
 	}
-	public void setProductnum(Integer productnum) {
-		this.productnum = productnum;
+	public void setProductNum(Integer productNum) {
+		this.productNum = productNum;
 	}
-	public String getProductname() {
-		return productname;
+	public String getProductName() {
+		return productName;
 	}
-	public void setProductname(String productname) {
-		this.productname = productname;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
-	public String getProductdetail() {
-		return productdetail;
+	public String getProductDetail() {
+		return productDetail;
 	}
-	public void setProductdetail(String productdetail) {
-		this.productdetail = productdetail;
+	public void setProductDetail(String productDetail) {
+		this.productDetail = productDetail;
 	}
-	public double getProductjumsu() {
-		return productjumsu;
+	public Double getProductJumsu() {
+		return productJumsu;
 	}
-	public void setProductjumsu(double productjumsu) {
-		this.productjumsu = productjumsu;
+	public void setProductJumsu(Double productJumsu) {
+		this.productJumsu = productJumsu;
 	}
+	
+	
 	
 
 	}

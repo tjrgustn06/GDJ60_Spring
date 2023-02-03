@@ -6,7 +6,9 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Hello world! 
+	<a href="./product/list?num=1&num=2&num=3">Product List</a>
+	<a href="/product/list">Product List</a>
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
