@@ -9,5 +9,7 @@
   	<typeAliases>
   		<typeAlias type="com.iu.s1.product.ProductDTO" alias="ProductDTO"></typeAlias>
   		<typeAlias type="java.lang.Integer" alias="Integer"></typeAlias>
+  		<typeAlias type="com.iu.s1.member.MemberDTO" alias="MemberDTO"></typeAlias>
     	</typeAliases>
   </configuration>
+ 

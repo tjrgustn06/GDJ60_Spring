@@ -4,11 +4,9 @@ public class MemberDTO {
 	
 	private String id;
 	private String pw;
-	private String name;
-	private String phone;
-	private String address;
+	private String membername;
+	private String memberphone;
 	private String email;
-	
 	
 	
 	public String getId() {
@@ -23,23 +21,17 @@ public class MemberDTO {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	public String getName() {
-		return name;
+	public String getMembername() {
+		return membername;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setMembername(String membername) {
+		this.membername = membername;
 	}
-	public String getPhone() {
-		return phone;
+	public String getMemberphone() {
+		return memberphone;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setMemberphone(String memberphone) {
+		this.memberphone = memberphone;
 	}
 	public String getEmail() {
 		return email;

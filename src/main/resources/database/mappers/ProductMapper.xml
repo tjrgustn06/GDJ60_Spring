@@ -7,7 +7,7 @@
   <!-- ProductList -->
   <mapper namespace="com.iu.s1.product.ProductDAO">
   <select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
-  	SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTJUMSU
+  	SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTSCORE
   	FROM PRODUCT
   	ORDER BY PRODUCTNUM DESC
   </select>
@@ -18,10 +18,11 @@
   </select>
   <!-- SetAddProduct -->
   <insert id="setAddProduct" parameterType="ProductDTO">
-  	INSERT INTO PRODUCT(PRODUCTNUM, PRODUCTNAME, PRODUCTDETAIL, PRODUCTJUMSU)
+  	INSERT INTO PRODUCT(PRODUCTNUM, PRODUCTNAME, PRODUCTDETAIL, PRODUCTSCORE)
   	VALUES(#{productNum},#{productName},#{productDetail},0.0)
   </insert>
   
+  <!-- Delete -->
   <delete id="setProductDelete"	parameterType="ProductDTO">
   	DELETE PRODUCT WHERE PRODUCTNUM = #{productNum}
   </delete>

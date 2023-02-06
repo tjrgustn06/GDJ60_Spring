@@ -19,7 +19,7 @@
 				
 	%>
 	<h3><%= productDTO.getProductName() %></h3>
-	<h3><%= productDTO.getProductJumsu() %></h3>
+	<h3><%= productDTO.getProductScore() %></h3>
 	<%}%>
 	<hr>
 	<div class="col-6">
@@ -35,7 +35,7 @@
 	<c:forEach items="${list}" var="dto"><!-- dto는 page영역에 담김 -->
 		<tr>
 		<td><a  href = "./detail?productNum=${dto.productNum}">${pageScope.dto.productName}</a></td>
-		<td>${dto.productJumsu}</td>
+		<td>${dto.productScore}</td>
 		</tr>
 	</c:forEach>
 	</tbody>
