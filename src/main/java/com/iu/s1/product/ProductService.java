@@ -26,7 +26,7 @@ public class ProductService {
 		//prdoct , option 등록
 		int productNum = productDAO.getProductNum();
 		productDTO.setProductNum(productNum);
-		int result = productDAO.SetAddProduct(productDTO);
+		int result = productDAO.setAddProduct(productDTO);
 		
 		if(ar !=null) {
 		

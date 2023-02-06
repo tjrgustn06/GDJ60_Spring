@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- ProductList -->
+  <mapper namespace="com.iu.s1.product.ProductDAO">
+  <select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
+  	SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTJUMSU
+  	FROM PRODUCT
+  	ORDER BY PRODUCTNUM DESC
+  </select>
+  
+  <!-- ProductDetail -->
+  <select id="getProductDetail" parameterType="ProductDTO" resultType="com.iu.s1.product.ProductDTO">
+ 	SELECT * FROM PRODUCT WHERE PRODUCTNUM = #{productNum}
+  </select>
+  <!-- SetAddProduct -->
+  <insert id="setAddProduct" parameterType="ProductDTO">
+  	INSERT INTO PRODUCT(PRODUCTNUM, PRODUCTNAME, PRODUCTDETAIL, PRODUCTJUMSU)
+  	VALUES(#{productNum},#{productName},#{productDetail},0.0)
+  </insert>
+  
+  <delete id="setProductDelete"	parameterType="ProductDTO">
+  	DELETE PRODUCT WHERE PRODUCTNUM = #{productNum}
+  </delete>
+  
+  
+  </mapper>
+  
