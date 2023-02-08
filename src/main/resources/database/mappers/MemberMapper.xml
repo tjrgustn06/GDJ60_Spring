@@ -6,7 +6,7 @@
   
  <mapper namespace="com.iu.s1.member.MemberDAO">
   
-  <insert id="setAddMember" parameterType="MemberDTO">
+  <insert id="setMemberJoin" parameterType="MemberDTO">
   INSERT INTO MEMBER(ID, PW, MEMBERNAME, MEMBERPHONE, EMAIL)
   VALUES(#{id}, #{pw}, #{memberName}, #{memberPhone}, #{email})
   </insert>

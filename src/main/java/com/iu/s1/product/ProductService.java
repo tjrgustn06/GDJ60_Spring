@@ -11,7 +11,8 @@ public class ProductService {
 	//결합도가 높다(강하다)
 	
 	@Autowired
-	private ProductDAO productDAO = new ProductDAO(); 
+	private ProductDAO productDAO;
+	
 	
 	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception{
 		return productDAO.getProductdetail(productDTO);
@@ -22,11 +23,11 @@ public class ProductService {
 	}
 	
 	
-	public int setAddProduct (ProductDTO productDTO, List<ProductOptionDTO> ar) throws Exception {
+	public int setProductAdd (ProductDTO productDTO, List<ProductOptionDTO> ar) throws Exception {
 		//prdoct , option 등록
-		int productNum = productDAO.getProductNum();
+		Long productNum = productDAO.getProductNum();
 		productDTO.setProductNum(productNum);
-		int result = productDAO.setAddProduct(productDTO);
+		int result = productDAO.setProductAdd(productDTO);
 		
 		if(ar !=null) {
 		

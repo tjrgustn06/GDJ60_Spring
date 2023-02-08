@@ -25,7 +25,7 @@ public class ProductDAO {
 	
 	
 	//삭제
-	public int setProductDelete(Integer productNum) throws Exception {
+	public int setProductDelete(Long productNum) throws Exception {
 		
 		return sqlSession.delete(NAMESPACE+"setProductDelete", productNum);
 	}
@@ -46,29 +46,16 @@ public class ProductDAO {
 	}
 	
 	//---------------SetAddProduct
-	public int setAddProduct(ProductDTO productDTO) throws Exception {
+	public int setProductAdd(ProductDTO productDTO) throws Exception {
 		
 		return sqlSession.insert(NAMESPACE+"setAddProduct", productDTO);
 		
 	}
 	
 	//---getMax
-	public int getProductNum() throws Exception{
-		Connection con = DBConnection.getConnection();
+	public Long getProductNum() throws Exception{
 		
-		String sql = "SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL";
-		
-		PreparedStatement st = con.prepareStatement(sql);
-		
-		ResultSet rs = st.executeQuery();
-		
-		rs.next();
-		
-		int num = rs.getInt(1);
-		
-		DBConnection.disConnection(st, con, rs);
-		
-		return num;
+		return sqlSession.selectOne(NAMESPACE +"getProductNum");
 	
 	}
 	
@@ -92,7 +79,7 @@ public class ProductDAO {
 		while(rs.next()) {
 			ProductOptionDTO productOptionDTO = new ProductOptionDTO();
 			productOptionDTO.setOptionNum(rs.getInt("OPTIONNUM"));
-			productOptionDTO.setProductNum(rs.getInt("PRODUCTNUM"));
+			productOptionDTO.setProductNum(rs.getLong("PRODUCTNUM"));
 			productOptionDTO.setOptionName(rs.getString("OPTIONMANE"));
 			productOptionDTO.setOptionPrice(rs.getInt("OPTIONPRICE"));
 			productOptionDTO.setOptionStock(rs.getInt("OPTIONSTOCK"));
@@ -112,7 +99,7 @@ public class ProductDAO {
 				+ "VALUEX(PRODUCT_SEQ.NEXTVAL, ?, ?, ?, ?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, productOptionDTO.getOptionNum());
-		st.setInt(2, productOptionDTO.getProductNum());
+		st.setLong(2, productOptionDTO.getProductNum());
 		st.setString(3, productOptionDTO.getOptionName());
 		st.setInt(4, productOptionDTO.getOptionPrice());
 		st.setInt(5, productOptionDTO.getOptionStock());

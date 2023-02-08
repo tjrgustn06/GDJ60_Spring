@@ -3,7 +3,7 @@ package com.iu.s1.product;
 public class ProductOptionDTO {
 
 	private Integer optionNum;
-	private Integer productNum;
+	private Long productNum;
 	private String optionName;
 	private Integer optionPrice;
 	private Integer optionStock;
@@ -16,10 +16,10 @@ public class ProductOptionDTO {
 	public void setOptionNum(Integer optionNum) {
 		this.optionNum = optionNum;
 	}
-	public Integer getProductNum() {
+	public Long getProductNum() {
 		return productNum;
 	}
-	public void setProductNum(Integer productNum) {
+	public void setProductNum(Long productNum) {
 		this.productNum = productNum;
 	}
 	public String getOptionName() {

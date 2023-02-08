@@ -2,15 +2,16 @@ package com.iu.s1.product;
 
 public class ProductDTO {
 	
-	private Integer productNum;
+	private Long productNum;
 	private String productName;
 	private String productDetail;
 	private Double productScore;
 	
-	public Integer getProductNum() {
+
+	public Long getProductNum() {
 		return productNum;
 	}
-	public void setProductNum(Integer productNum) {
+	public void setProductNum(Long productNum) {
 		this.productNum = productNum;
 	}
 	public String getProductName() {

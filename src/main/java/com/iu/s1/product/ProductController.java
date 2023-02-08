@@ -60,12 +60,14 @@ public class ProductController {
 	
 	//productAdd jsp명과 URL주소가 일치하면 리턴타입은 보이드로 써도 된다.
 	@RequestMapping(value="productAdd", method = RequestMethod.GET)
-	public void ProductAdd() {		
+	public void setProductAdd() {		
 			
 	}
+	
+	
 	@RequestMapping(value = "productAdd", method = RequestMethod.POST)
 	public String productAdd(ProductDTO productDTO) throws Exception {
-		int result = productService.setAddProduct(productDTO, null);
+		int result = productService.setProductAdd(productDTO, null);
 		System.out.println(result == 1);
 		
 		return "redirect:./list";
