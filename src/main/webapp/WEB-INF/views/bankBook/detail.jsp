@@ -22,7 +22,7 @@
 	<c:if test="${empty detail}">
 		<h3>존재하지 않는 상품입니다.</h3>
 	</c:if>
-	
+	<a href="./update?bookNumber=${detail.bookNumber}">상품수정</a>
 	<a href="./list">목록으로</a>
 </body>
 </html>

@@ -6,11 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../resources/css/table.css">
 </head>
 <body>
-	<h1>BankBook List page</h1>
-	
-	<table border="1">
+	<h1 class="title">BankBook List page</h1>
+	<div class="image">
+	<img alt="박지현 이미지" src="../resources/images/park.jpg">
+	</div>
+
+	<table class="tb1" border="1" >
 		<thead>
 			<tr>
 				<th>상품명</th>
