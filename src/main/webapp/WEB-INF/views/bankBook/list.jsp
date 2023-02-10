@@ -14,7 +14,7 @@
 	<img alt="박지현 이미지" src="../resources/images/park.jpg">
 	</div>
 
-	<table class="tb1" border="1" >
+	<table class="tbl2">
 		<thead>
 			<tr>
 				<th>상품명</th>
@@ -25,9 +25,9 @@
 		<tbody>
 		<c:forEach items="${list}" var="dto"> <!-- var = "이름은 내가 원하는거써도 가능하다" -->
 			<tr>
-				<td><a href="./detail?bookNumber=${dto.bookNumber}">${dto.bookName}</a></td>		
-				<td>${dto.bookRate}</td>
-				<td>
+				<td ><a href="./detail?bookNumber=${dto.bookNumber}">${dto.bookName}</a></td>		
+				<td class="tbl_td" >${dto.bookRate}</td>
+				<td class="tbl_td">
 				<c:choose>
 					<c:when test="${dto.bookSale eq 1}">판매중</c:when>
 					<c:otherwise>판매중단</c:otherwise>

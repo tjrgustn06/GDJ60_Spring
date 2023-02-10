@@ -1,0 +1,26 @@
+.as1{
+    display: inline-block;
+    width: 100px;
+    height: 75px;
+    border-radius: 40px;
+    background-color: aquamarine;
+    color: brown;
+    box-sizing: border-box;
+}
+.as2{
+    width: 100px;
+    height: 45px;
+    border-radius: 30px;
+    background-color: tan;
+    display: inline-block;
+    color: blueviolet;
+    margin-top: 30px;
+
+}
+.as3{
+    width: 150px;
+    height: 60px;
+    background-color: lemonchiffon;
+    color: dodgerblue;
+    margin-top: 40px;
+}
