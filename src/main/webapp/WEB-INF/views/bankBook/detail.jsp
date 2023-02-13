@@ -5,24 +5,51 @@
 <!DOCTYPE html>
 <html>
 <head>
+<c:import url="../template/header.jsp"></c:import>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<c:import url="../template/common_css.jsp"></c:import>
 	<h1>BankBook Detail Page</h1>
-	<c:if test="${not empty detail}">	
-	<h3>Number : ${detail.bookNumber}</h3>
-	<h3>Title : ${detail.bookName}</h3>
-	<h3>Detail : ${detail.bookDetail}</h3>
-	<h3>Rate : ${detail.bookRate}</h3>
-	<h3>Sale : ${detail.bookSale}</h3>
-	<a href="./delete?bookNumber=${detail.bookNumber}">상품삭제</a>
-	
-	</c:if>
+	<c:if test="${not empty detail}">
+	<div>
+  <form>
+  <fieldset disabled>
+    <div class="mb-3">
+      <label for="${detail.bookNumber}" class="form-label">제품번호</label>     
+      <input type="text" id="${detail.bookNumber}" class="form-control" placeholder="${detail.bookNumber}">
+    </div>
+    <div class="mb-3">
+      <label for="${detail.bookName}" class="form-label">제품명</label>
+      <input type="text" id="${detail.bookName}" class="form-control" placeholder="${detail.bookName}">
+    </div>
+    <div class="mb-3">
+      <label for="${detail.bookRate}" class="form-label">이자율</label>
+      <input type="text" id="${detail.bookRate}" class="form-control" placeholder="${detail.bookRate}">
+    </div>
+    <div class="mb-3">
+      <label for="${detail.bookDetail}" class="form-label">상세정보</label>
+      <textarea type="text" id="${detail.bookDetail}" class="form-control" placeholder="${detail.bookDetail}"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="${detail.bookSale}" class="form-label">판매여부</label>
+      <input type="text" id="${detail.bookSale}" class="form-control" placeholder="${detail.bookSale}">
+    </div>
+    
+    <a class="btn btn-danger col-1" href="./delete?bookNumber=${detail.bookNumber}">상품삭제</a>
+    
+    	</c:if>
 	<c:if test="${empty detail}">
 		<h3>존재하지 않는 상품입니다.</h3>
-	</c:if>
-	<a href="./update?bookNumber=${detail.bookNumber}">상품수정</a>
-	<a href="./list">목록으로</a>
+		</c:if>
+	<a class="btn btn-warning col-1" href="./update?bookNumber=${detail.bookNumber}">상품수정</a>
+	<a class="btn btn-info col-1" href="./list ">목록으로</a>
+   	 </div>
+  </form>
+	
+
+	
+<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

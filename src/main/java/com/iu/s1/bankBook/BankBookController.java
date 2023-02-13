@@ -38,7 +38,7 @@ public class BankBookController {
 	}
 	
 	//Add(insert)
-	@RequestMapping(value ="add", method = RequestMethod.GET )
+	@RequestMapping(value ="add", method = RequestMethod.GET)
 	public ModelAndView setBankBookAdd(ModelAndView mv) throws Exception {
 	
 		mv.setViewName("bankBook/add");
@@ -55,7 +55,8 @@ public class BankBookController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "delete", method = RequestMethod.GET  )
+	//delete
+	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public ModelAndView setBankBookDelete(ModelAndView mv, BankBookDTO bankBookDTO) throws Exception {
 		
 		int result = bankBookService.setBankBookDelete(bankBookDTO);
@@ -64,7 +65,7 @@ public class BankBookController {
 		return mv;
 	}
 	
-	
+	//update
 	@RequestMapping(value = "update", method = RequestMethod.GET)
 	public ModelAndView setBankBookUpdate(ModelAndView mv, BankBookDTO bankBookDTO) throws Exception {
 		

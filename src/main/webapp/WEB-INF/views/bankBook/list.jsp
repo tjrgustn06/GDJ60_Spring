@@ -5,19 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../resources/css/table.css">
+<title>저축상품</title>
+<c:import url="../template/header.jsp"></c:import>
 </head>
 <body>
 <c:import url="../template/common_css.jsp"></c:import>
-<c:import url="../template/header.jsp"></c:import>
-	
-	<h1 class="title">BankBook List page</h1>
-	<div class="image">
-	<img alt="박지현 이미지" src="../resources/images/park.jpg">
-	</div>
 
-	<table class="tbl2">
+<div class="contrainer-fluid my-5">
+		<div class="row mb-4">
+	<h1 class="title col-md-7 xm-duto text-center border-bottom border-dark pb-4">BankBook List page</h1>
+	</div>
+	<div>
+	<div class="row col-md-7 mx-auto">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>상품명</th>
@@ -45,11 +45,14 @@
 		</tbody>	
 	</table>
 	
-	<a href="./add">상품등록</a>
 	
-	
-	
-	
+	</div>
+	</div>
+	<div class="row col-md-7 mx-auto">
+		<a href="./add" class="btn btn-primary col-2">상품등록</a>
+	</div>
+	</div>
+<c:import url="../template/common_js.jsp"></c:import>
 </body>
 
 </html>
