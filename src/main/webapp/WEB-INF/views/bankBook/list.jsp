@@ -9,6 +9,9 @@
 <link rel="stylesheet" href="../resources/css/table.css">
 </head>
 <body>
+<c:import url="../template/common_css.jsp"></c:import>
+<c:import url="../template/header.jsp"></c:import>
+	
 	<h1 class="title">BankBook List page</h1>
 	<div class="image">
 	<img alt="박지현 이미지" src="../resources/images/park.jpg">
@@ -48,4 +51,5 @@
 	
 	
 </body>
+
 </html>
