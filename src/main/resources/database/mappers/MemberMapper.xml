@@ -11,9 +11,23 @@
   VALUES(#{id}, #{pw}, #{memberName}, #{memberPhone}, #{email})
   </insert>
   
-  <insert id="" parameterType="MemberDTO">
+  <insert id="setMemberRoleAdd" parameterType="MemberDTO">
   	INSERT INTO MEMBERROLE (ID,ROLENUM)
-  	VALUES (#{di}, (SELECT ROLENUM FROM ROLE WHERE ROLENAME ='MEMBER'))
+  	VALUES (#{id}, (SELECT ROLENUM FROM ROLE WHERE ROLENAME ='MEMBER'))
   </insert>
+  
+  <select id="setMemberLogin" parameterType="MemberDTO">
+  	SELECT * FROM MEMBER WHERE ID=#{id} AND PW=#{pw}
+  </select>
+  
+   <select id="setMemberPage" parameterType="MemberDTO" resultType="MemberDTO">
+   		SELECT * FROM MEMBER
+     </select>
+  <select id="setMemberUpdate" parameterType="MemberDTO">
+  	UPADTE MEMBER SET MEMBERNAME=#{memberName}, MEMBERPHONE=#{memberPhone}, EMAIL=#{email}
+  	WHERE ID=#{id}
+  </select>
+  
+  
   
   </mapper>

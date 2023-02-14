@@ -18,14 +18,14 @@
 				data-bs-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="/resources/images/s1.jpg" class="d-block w-100"alt="...">
+						<img src="/resources/images/s1.jpg" class="d-block w-40"alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="/resources/images/s2.jpg" class="d-block w-100"alt="...">
+						<img src="/resources/images/s2.jpg" class="d-block w-40"alt="...">
 	
 					</div>
 					<div class="carousel-item">
-						<img src="/resources/images/s3.jpg" class="d-block w-100"alt="...">						
+						<img src="/resources/images/s3.jpg" class="d-block w-40"alt="...">						
 					</div>
 				</div>
 				<button class="carousel-control-prev" type="button"
@@ -41,7 +41,9 @@
 			</div>
 		</div>
 
-
+<div>
+	<h1>${member.name}</h1>
+</div>
 	<c:import url="./template/common_js.jsp"></c:import>
 </body>
 </html>

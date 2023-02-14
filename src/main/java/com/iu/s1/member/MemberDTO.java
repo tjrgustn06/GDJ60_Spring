@@ -10,14 +10,16 @@ public class MemberDTO  {
 	private String memberphone;
 	private String email;
 	
-	private List<RoleDTO> roleDTOs;
+	private RoleDTO roleDTO;
 	
-	public List<RoleDTO> getRoleDTOs() {
-		return roleDTOs;
+
+	public RoleDTO getRoleDTO() {
+		return roleDTO;
 	}
-	public void setRoleDTOs(List<RoleDTO> roleDTOs) {
-		this.roleDTOs = roleDTOs;
+	public void setRoleDTO(RoleDTO roleDTO) {
+		this.roleDTO = roleDTO;
 	}
+	
 	public String getId() {
 		return id;
 	}

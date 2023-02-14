@@ -19,14 +19,13 @@
   		VALUES(BANKNUM_SEQ.NEXTVAL, #{bookName}, #{bookRate}, #{bookSale}, #{bookDetail})
   	</insert>
   	
-  	
-  	
   	<delete id="setBankBookDelete" parameterType="BankBookDTO">
   		DELETE BANKBOOK WHERE BOOKNUMBER =#{bookNumber}
   	</delete>
+  	
   	<update id="setBankBookUpdate" parameterType="BankBookDTO">
   		UPDATE BANKBOOK SET BOOKNAME=#{bookName}, BOOKRATE=#{bookRate}, BOOKSALE=#{bookSale}, BOOKDETAIL=#{bookDetail}
-  		  	WHERE BOOKNUMBER =#{bookNumber}	
+  		  	WHERE BOOKNUMBER =#{bookNumber}
   	</update>
   
   </mapper>

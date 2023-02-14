@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <nav class="navbar bg-dark navbar navbar-expand-lg bg-body-tertiary " data-bs-theme="dark">
   <div class="container-fluid">
   	<a href="/" class="navbar-brand"><img src="/resources/images/logo.png"></a>
@@ -15,13 +16,24 @@
 	</ul>
 	
 	<ul class="navbar-nav">
-		<li class="nav-item"><a class="nav-link" href="#">LOGIN</a></li>
-		<li class="nav-item"><a class="nav-link" href="/member/member.add">JOIN</a></li>
+		<c:if test="${empty member}">
+		<li class="nav-item"><a class="nav-link" href="/member/memberlogin">LOGIN</a></li>
+		<li class="nav-item"><a class="nav-link" href="/member/memberjoin">JOIN</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">KO</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">EN</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">JP</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">CN</a></li>
+		</c:if>
+		<c:if test="${not empty mwmber}">
+		<li class="nav-item"><a class="nav-link" href="/member/membermypage">MYPAGE</a></li>
+		<li class="nav-item"><a class="nav-link" href="/member/memberlogout">LOGOUT</a></li>
+		<li class="nav-item"><a class="nav-link" href="#">KO</a></li>
+		<li class="nav-item"><a class="nav-link" href="#">EN</a></li>
+		<li class="nav-item"><a class="nav-link" href="#">JP</a></li>
+		<li class="nav-item"><a class="nav-link" href="#">CN</a></li>
+		</c:if>
 	</ul>
+	
 	  </div>
 </nav>
 
