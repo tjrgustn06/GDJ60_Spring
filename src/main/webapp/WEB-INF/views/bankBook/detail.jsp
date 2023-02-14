@@ -44,7 +44,7 @@
 		<h3>존재하지 않는 상품입니다.</h3>
 		</c:if>
 	<a class="btn btn-warning col-1" href="./update?bookNumber=${detail.bookNumber}">상품수정</a>
-	<a class="btn btn-info col-1" href="./list ">목록으로</a>
+	<a class="btn btn-info col-1" href="./list ">목록으로</a>0
    	 </div>
   </form>
 	

@@ -14,7 +14,7 @@
 <c:import url="./template/header.jsp"></c:import>
 		
 		<div class="contrainer-fluid my-5">
-			<div id="carouselExampleAutoplaying" class="carousel slide"
+			<div id="carouselExampleAutoplaying" class="carousel slide">
 				data-bs-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active">
