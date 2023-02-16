@@ -36,7 +36,7 @@ public class MemberController {
 	@RequestMapping(value="memberJoin", method= RequestMethod.GET)
 	public ModelAndView memberJoin(ModelAndView mv) throws Exception {
 		
-		mv.setViewName("member/memberjoin");
+		mv.setViewName("member/memberJoin");
 		mv.addObject("join", mv);
 		
 		return mv;
@@ -46,7 +46,7 @@ public class MemberController {
 	@RequestMapping(value="memberLogin", method = RequestMethod.GET)
 	public ModelAndView memberLogin(ModelAndView mv) throws Exception {
 		
-		mv.setViewName("member/memberlogin");	
+		mv.setViewName("member/memberLogin");
 		
 		return mv;
 	}
@@ -84,7 +84,7 @@ public class MemberController {
 	 	memberDTO = memberService.getMemberPage(memberDTO);
 	 	mv.addObject("dto", memberDTO);
 		
-		mv.setViewName("member/memberpage");
+		mv.setViewName("member/memberPage");
 		return mv;
 	}
 	
@@ -94,7 +94,7 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		
-		mv.setViewName("member/memberupdate");
+		mv.setViewName("member/memberUpdate");
 		mv.addObject("dto",mv);
 		return mv;
 	}
@@ -110,7 +110,7 @@ public class MemberController {
 //			session.setAttribute("member", memberDTO);
 //		}
 		
-		mv.setViewName("redirect:./memberpage");
+		mv.setViewName("redirect:./memberPage");
 		return mv;
 	}
 	

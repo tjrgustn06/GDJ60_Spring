@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.s1.util.Pager;
+
 @Controller
 @RequestMapping("/product/*")
 public class ProductController {
@@ -22,17 +24,17 @@ public class ProductController {
 	
 	
 	@RequestMapping(value ="list")  	//DS에서 mv를 받아옴
-	public ModelAndView getProductList(ModelAndView mv) throws Exception {
+	public ModelAndView getProductList(ModelAndView mv, Pager pager) throws Exception {
 		
 		//ModelAndView mv = new ModelAndView();  ==>직접 만드는거
 		
-		List<ProductDTO> ar = productService.getProductList();
+		List<ProductDTO> ar = productService.getProductList(pager);
 		
 		System.out.println(ar.size()>0);
 		
 		mv.setViewName("product/productList");
 		mv.addObject("list", ar);
-		
+		mv.addObject("pager",pager);
 		return mv;
 	}
 	

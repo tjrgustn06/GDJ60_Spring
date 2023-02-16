@@ -17,15 +17,15 @@
 	
 	<ul class="navbar-nav">
 		<c:if test="${empty member}">
-		<li class="nav-item"><a class="nav-link" href="/member/memberlogin">LOGIN</a></li>
-		<li class="nav-item"><a class="nav-link" href="/member/memberjoin">JOIN</a></li>
+		<li class="nav-item"><a class="nav-link" href="/member/memberLogin">LOGIN</a></li>
+		<li class="nav-item"><a class="nav-link" href="/member/memberJoin">JOIN</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">KO</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">EN</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">JP</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">CN</a></li>
 		</c:if>
-		<c:if test="${not empty mwmber}">
-		<li class="nav-item"><a class="nav-link" href="/member/membermypage">MYPAGE</a></li>
+		<c:if test="${not empty member}">
+		<li class="nav-item"><a class="nav-link" href="/member/memberPage">MYPAGE</a></li>
 		<li class="nav-item"><a class="nav-link" href="/member/memberlogout">LOGOUT</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">KO</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">EN</a></li>

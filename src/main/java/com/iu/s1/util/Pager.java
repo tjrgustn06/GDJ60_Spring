@@ -2,8 +2,24 @@ package com.iu.s1.util;
 
 public class Pager {
 	
+	//검색종류 (사용할 컬럼)kind
+	private String kind;
+	
+	//검색어
+	private String search;
+	
 	//한페이지에 출력할 ROW의 갯수	
 	private Long perPage;
+	
+	//한 블럭당 출력할 번호의 갯수
+	private Long perBlaock;
+	
+	//전체 페이지 갯수(totalpage)
+	private Long totalPage;
+	
+	public Long getTotalPage() {
+		return totalPage;
+	}
 	//Client가 보고싶은 페이지 번호(parameter)
 	private Long page;
 	
@@ -27,34 +43,34 @@ public class Pager {
 		
 		//1.전체 row의 갯수 구하기
 		//2.총 page의 갯수 구하기
-		Long totalPage = totalCount/this.getPerPage();
+		this.totalPage = totalCount/this.getPerPage();
 		
 		if(totalCount % this.getPerPage() !=0) {			
-			totalPage++;
+			this.totalPage++;
 		}
-			if(this.getPage()>totalPage) {
-				this.setPage(totalPage);
+			if(this.getPage()>this.totalPage) {
+				this.setPage(this.totalPage);
 			}
 		
 		//3.한 블럭에 출력할 번호의 갯수
-		Long perBlock = 5L;
+		
 				
 		//4.총 블럭의 수 구하기
-		Long totalBlock = totalPage/perBlock;
-		if(totalPage%perBlock !=0) {
+		Long totalBlock = this.totalPage/this.getPerBlaock();
+		if(this.totalPage % this.getPerBlaock() !=0) {
 			totalBlock++;
 		}
 		//5 page 번호로 현재 블럭 번호 구하기
 		// page 1~5 curBlock=1
 		// page 6~10 curBlock=2
 		
-		Long curBlock = this.page / perBlock;
-		if(this.getPage() % perBlock !=0) {
+		Long curBlock = this.page / this.getPerBlaock();
+		if(this.getPage() % this.getPerBlaock() !=0) {
 			curBlock++;
 		}
 		//6. curBlock의 시작번화 끝번호를 계산
-		this.startNum=(curBlock-1)*perBlock+1;
-		this.lastNum= curBlock*perBlock;
+		this.startNum=(curBlock-1)*this.getPerBlaock()+1;
+		this.lastNum= curBlock*this.getPerBlaock();
 		
 		this.after = true;
 		if(curBlock == totalBlock) {
@@ -74,6 +90,40 @@ public class Pager {
 //	public void setTotalCount(Long totalCount) {
 //		this.totalCount = totalCount;
 //	}
+	
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+
+	public String getSearch() {
+		
+		if(search == null) {
+			search="";
+		}
+		return 	search;		//"%"+search+"%";
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+	
+	
+
+	public Long getPerBlaock() {
+		if(this.perBlaock ==null || this.perBlaock < 1) {
+			this.perBlaock =5L;
+		}
+		
+		return perBlaock;
+	}
+
+	public void setPerBlaock(Long perBlaock) {
+		this.perBlaock = perBlaock;
+	}
 
 	public boolean isBefore() {
 		return before;
@@ -123,14 +173,17 @@ public class Pager {
 		}
 		return perPage;
 	}
+	
 	public void setPerPage(Long perPage) {
 		this.perPage = perPage;
 	}
+	
 	public Long getPage() {
 		if(this.page == null ||this.page < 1 ) {
 			this.page = 1L;
 		}
 		return page;
+		
 	}
 	public void setPage(Long page) {
 		this.page = page;

@@ -6,17 +6,37 @@
   
   <mapper namespace="com.iu.s1.bankBook.BankBookDAO">
   
-  	<select id="getBankBookCount" resultType="Long">
-  	 SELECT COUNT(BOOKNUMBER) FROM BANKBOOK  	
+  	<select id="getBankBookCount" parameterType="pager" resultType="Long">
+  	 SELECT COUNT(BOOKNUMBER) FROM BANKBOOK  
+  	 
+  	 <if test="kind == 'contents'">
+  	 	WHERE BOOKDETAIL LIKE '%' || #{search} || '%'
+  	 </if>
+  	 <if test="kind == 'title'">
+  	 	WHERE BOOKNAME LIKE '%' || #{search} || '%'
+  	 </if>
+  	 		 	
   	</select>
-  
+  		<!-- BankBookList -->
   	<select id="getBankBookList" parameterType="Pager" resultType="BankBookDTO" >
 	SELECT * FROM
 		(
 			SELECT ROWNUM R, B.* FROM
 				(
 				SELECT * FROM BANKBOOK
-				ORDER BY BOOKNUMBER DESC
+				
+				WHERE 
+				
+				<choose>
+					<when test="kind == 'contents'">
+						BOOKDETAIL
+					</when>
+					<otherwise>
+					 	BOOKNAME
+					</otherwise>
+				</choose>
+				LIKE '%' || #{search} || '%'
+				ORDER BY BOOKNUMBER DESC				
 			) B
 		)
 	WHERE R BETWEEN #{startRow} AND #{lastRow}

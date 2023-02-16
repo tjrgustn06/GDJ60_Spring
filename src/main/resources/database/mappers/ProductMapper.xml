@@ -6,11 +6,44 @@
   
   <mapper namespace="com.iu.s1.product.ProductDAO">
   
+  
+  <select id="getProductCount" parameterType="pager" resultType="Long">
+  	SELECT COUNT(PRODUCTNUM) FROM PRODUCT
+  
+  <if test="kind == 'contents'">
+	WHERE PRODUCTSCORE  LIKE '%' || #{search} || '%'
+  </if>
+  <if test="kind == 'title'">
+  	WHERE PRODUCTNAME LIKE '%' || #{search} || '%'
+  </if>
+  
+  </select>
+  
   <!-- ProductList -->
-  <select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
+  <select id="getProductList" parameterType="pager" resultType="ProductDTO" statementType="PREPARED">
+  	SELECT *FROM
+  	(
+  		SELECT ROWNUM R, P.*FROM
+  	(
   	SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTSCORE
-  	FROM PRODUCT
+  		FROM PRODUCT 
+  	
+  	WHERE 
+  	
+  	<choose>
+  		<when test="kind == 'contents'">
+  				PRODUCTSCORE
+  		</when>
+  		<otherwise>
+  				PRODUCTNAME
+  		</otherwise>
+  	</choose>
+  		LIKE '%' || #{search} || '%'
   	ORDER BY PRODUCTNUM DESC
+  		) P
+  	)
+  	WHERE R BETWEEN #{startRow} AND#{lastRow}
+ 
   </select>
   
   <!-- ProductDetail -->

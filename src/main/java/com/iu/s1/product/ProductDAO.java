@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.iu.s1.util.DBConnection;
+import com.iu.s1.util.Pager;
 
 @Repository
 public class ProductDAO {
@@ -23,6 +24,17 @@ public class ProductDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.s1.product.ProductDAO.";
 	
+	
+	public Long getProductCount(Pager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getProductCount", pager);
+	}
+	
+	//---------------------------------- ProductList
+	
+	public List<ProductDTO> getProductList(Pager pager) throws Exception {
+		
+		return sqlSession.selectList(NAMESPACE+"getProductList",pager);
+	}
 	
 	//삭제
 	public int setProductDelete(Long productNum) throws Exception {
@@ -38,12 +50,7 @@ public class ProductDAO {
 		return sqlSession.selectOne(NAMESPACE+"getProductDetail", productDTO);
 	}
 	
-	//---------------------------------- ProductList
-	
-	public List<ProductDTO> getProductList() throws Exception {
-		
-		return sqlSession.selectList(NAMESPACE+"getProductList");
-	}
+
 	
 	//---------------SetAddProduct
 	public int setProductAdd(ProductDTO productDTO) throws Exception {
@@ -58,9 +65,6 @@ public class ProductDAO {
 		return sqlSession.selectOne(NAMESPACE +"getProductNum");
 	
 	}
-	
-	
-	
 	
 	
 	//---------------------------ProductOption
