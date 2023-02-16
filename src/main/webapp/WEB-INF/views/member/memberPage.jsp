@@ -10,15 +10,18 @@
 </head>
 <c:import url="./template/header.jsp"></c:import>
 <body>
-	<h1>Member Page</h1>
+<div class="container-fluid">
+		<div class="row">
+			<h1>Member Page</h1>
+		</div>
 	
-	<div>
-		<h3>NAME:"${membername}"</h3>
-		<h3>PHONE:"${memberphone}"</h3>
-		<h3>EMAIL:"${email}"</h3>
+	<div class="row">
+		<h3>NAME:"${dto.name}"</h3>
+		<h3>PHONE:"${dto.phone}"</h3>
+		<h3>EMAIL:"${dto.email}"</h3>
 		<a href:"./memberUpdate" class="btn btn-info">정보수정</a>
 	</div>
-
+	</div>
 	<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

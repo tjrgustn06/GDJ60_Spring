@@ -2,11 +2,14 @@ package com.iu.s1.bankBook;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.iu.s1.util.Pager;
 
 @Controller
 @RequestMapping("/bankBook/*")
@@ -17,12 +20,17 @@ public class BankBookController {
 	
 	//List
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public ModelAndView getBankbookList(ModelAndView mv) throws Exception {
+	public ModelAndView getBankbookList(ModelAndView mv, Pager pager) throws Exception {
 		
-		List<BankBookDTO> ar = bankBookService.getBankBookList();
+
+		
+		List<BankBookDTO> ar = bankBookService.getBankBookList(pager);
+		
+		
 		
 		mv.setViewName("bankBook/list");
 		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
 		return mv;
 	}
 	

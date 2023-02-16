@@ -44,7 +44,7 @@
 					id="danger-outlined" autocomplete="off"> <label
 					class="btn btn-outline-danger" for="danger-outlined">판매중지</label><br>
 
-				<button type="button" class="btn btn-outline-primary col-1 my-3">등록</button>
+				<button type="submit" class="btn btn-outline-primary col-1 my-3">등록</button>
 		</div>
 
 		</form>

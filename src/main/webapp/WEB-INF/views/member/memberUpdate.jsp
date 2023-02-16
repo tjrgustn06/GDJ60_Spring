@@ -29,11 +29,7 @@
 			<legend>EMAIL</legend>
 		<input type="text" name="email" value="${dto.email}"> <br>
 	</fieldset>
-
-
-
-
-
+</form>
 
 <c:import url="../template/common_js.jsp"></c:import>
 </body>

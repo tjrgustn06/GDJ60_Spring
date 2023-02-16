@@ -20,6 +20,7 @@ public class MemberDAO {
 	public MemberDTO getMemberLogin(MemberDTO memberDTO)throws Exception{
 		
 	 return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
+	 //pw check
 }
 
 	public int setMemberJoin(MemberDTO memberDTO) throws Exception{
