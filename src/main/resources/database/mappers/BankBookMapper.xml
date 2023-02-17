@@ -42,9 +42,32 @@
 	WHERE R BETWEEN #{startRow} AND #{lastRow}
   	</select>
   	
-  	<select id="getBankBookDetail" parameterType="com.iu.s1.bankBook.BankBookDTO" resultType="BankBookDTO">
-  		SELECT * FROM BANKBOOK WHERE BOOKNUMBER = #{bookNumber}
+  	<select id="getBankBookDetail" parameterType="BankBookDTO" resultMap="bankBookDetailResult">
+	SELECT B.*, BI.*
+	FROM BANKBOOK B
+		LEFT OUTER JOIN
+		 BANKBOOKIMG BI
+		  ON(B.BOOKNUMBER = BI.BOOKNUMBER)
+	WHERE B.BOOKNUMBER =#{bookNumber}
   	</select>
+  	
+  	<resultMap type="BankBookDTO" id="bankBookDetailResult">
+  			<!-- Primary key -->
+  		<id column="BOOKNUMBER" property="bookNumber"/>
+  			<!-- Primary key 를 뺸 나머지 -->
+  		<result column="BOOKNAME" property="bookName"/>
+  		<result column="BOOKDETAIL" property="bookDetail"/>
+  		<result column="BOOKRATE" property="bookRate"/>
+  		<result column="BOOKSALE" property="bookSale"/>
+  			<!-- 1:1 관계일때는 association 씀 --> 		 <!-- 1:N 관계일때는 collection 씀 -->		
+  		<association property="bankBookImgDTO" javaType="BankBookImgDTO">
+  			<id column="FILENUM" property="fileNum"/>
+  			<result column="FILENAME" property="fileName"/>
+  			<result column="ORINAME" property="oriName"/>
+  		</association>
+  			
+  	</resultMap>
+  	
   	
   	<insert id="setBankBookAdd" parameterType="BankBookDTO">
   		INSERT INTO BANKBOOK
@@ -59,6 +82,11 @@
   		UPDATE BANKBOOK SET BOOKNAME=#{bookName}, BOOKRATE=#{bookRate}, BOOKSALE=#{bookSale}, BOOKDETAIL=#{bookDetail}
   		  	WHERE BOOKNUMBER =#{bookNumber}
   	</update>
+  	
+  	<insert id="setBankBookImgAdd" parameterType="BankBookImgDTO">
+ 		INSERT INTO BANKBOOKIMG
+ 		VALUES (BKBOOK_SEQ.NEXTVAL, #{bookNumber}, #{fileName}, #{oriName})
+ 	</insert>
   
   </mapper>
   

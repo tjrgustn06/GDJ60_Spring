@@ -36,7 +36,9 @@
       <label for="${detail.bookSale}" class="form-label">판매여부</label>
       <input type="text" id="${detail.bookSale}" class="form-control" placeholder="${detail.bookSale}">
     </div>
-    
+    <c:if test="${not empty detail.bankBookImgDTO}">
+    <img src="../resources/upload/bankBook/${detail.bankBookImgDTO.fileName}">
+   	 </c:if>
     <a class="btn btn-danger col-1" href="./delete?bookNumber=${detail.bookNumber}">상품삭제</a>
     
     	</c:if>

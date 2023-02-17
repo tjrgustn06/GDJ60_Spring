@@ -36,6 +36,11 @@
 					<textarea class="form-control col-md-7" name="bookDetail" rows="" cols=""></textarea> <br>
 				</div>
 
+				<div class="mb-3">
+					<label for="files" class="form-label">Image</label> 
+					<input type="file" class="form-control" id="files" name="pic">
+				</div>
+
 				<input type="radio" class="btn-check" name="options-outlined"
 					id="success-outlined" autocomplete="off" checked> <label
 					class="btn btn-outline-success" for="success-outlined">판매중</label>
