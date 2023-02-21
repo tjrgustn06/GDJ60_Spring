@@ -5,11 +5,16 @@
 
 	<!-- my batis 사용하기 위해 객체 생성 -->
 	<!-- Connection -->
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" id="propertyPlaceholderConfigurer">
+		<property name="location" value="classpath:database/info/dbinfo.properties"></property>
+	</bean>
+	
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
-		<property name="username" value="user01"></property>
-		<property name="password" value="user01"></property>
-		<property name="url" value="jdbc:oracle:thin:@192.168.1.95:1521:XE"></property>
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="username" value="${username}"></property>
+		<property name="password" value="${password}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="driverClassName" value="${driver}"></property>
 	</bean>
 
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
