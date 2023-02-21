@@ -113,6 +113,6 @@ public class MemberController {
 		mv.setViewName("redirect:./memberPage");
 		return mv;
 	}
-	
+
 	
 }

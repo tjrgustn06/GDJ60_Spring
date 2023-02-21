@@ -13,6 +13,7 @@
   <if test="kind == 'contents'">
 	WHERE PRODUCTSCORE  LIKE '%' || #{search} || '%'
   </if>
+  
   <if test="kind == 'title'">
   	WHERE PRODUCTNAME LIKE '%' || #{search} || '%'
   </if>
