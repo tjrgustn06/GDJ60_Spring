@@ -36,10 +36,13 @@
 					<textarea class="form-control col-md-7" name="bookDetail" rows="" cols=""></textarea> <br>
 				</div>
 
-				<div class="mb-3">
+				<div id="fileList">
+				<!-- <div class="mb-3">
 					<label for="files" class="form-label">Image</label> 
 					<input type="file" class="form-control" id="files" name="pic">
-				</div>
+				</div> -->
+				<button type="button" id="fileAdd">ADD</button>
+			</div>
 
 				<input type="radio" class="btn-check" name="options-outlined"
 					id="success-outlined" autocomplete="off" checked> <label
@@ -55,6 +58,10 @@
 		</form>
 	</div>
 	</div>
+	<script src="../resources/js/fileManger.js"></script>
+	<script>
+		setMax(3);
+	</script>
 	<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

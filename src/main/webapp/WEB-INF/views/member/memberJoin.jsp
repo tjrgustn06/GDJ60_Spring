@@ -35,19 +35,19 @@
 			<div class="mb-3">
 				<label for="pw" class="form-label">PW</label>
 				<input type="password" name="pw" class="form-control" id="pw" placeholder="PW 입력">
-				<div id="pwResult"></div>
+				<div id="pwResult" class=""></div>
 			</div>
 			
 			<div class="mb-3">
 				<label for="pw" class="form-label">PW</label>
 				<input type="password" name="pw" class="form-control" id="pwCheck" placeholder="PW 입력">
-				<div id="pwCheckResult"></div>
+				<div id="pwCheckResult" class=""></div>
 			</div>
 			
 			<div class="mb-3">
 				<label for="name" class="form-label">NAME</label>
 				<input type="text" name="name" class="form-control" id="name" placeholder="NAME 입력">
-				<div id="nameCResult"></div>
+				<div id="nameCResult" class=""></div>
 			</div>
 			
 			<div class="mb-3">
