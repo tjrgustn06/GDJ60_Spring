@@ -2,6 +2,15 @@ package com.iu.s1.util;
 
 public class Pager {
 	
+	private Long bookNumber;
+	
+	public Long getBookNumber() {
+		return bookNumber;
+	}
+
+	public void setBookNumber(Long bookNumber) {
+		this.bookNumber = bookNumber;
+	}
 	//검색종류 (사용할 컬럼)kind
 	private String kind;
 	
@@ -83,13 +92,13 @@ public class Pager {
 		}
 		
 	}
-//	public Long getTotalCount() {
-//		return totalCount;
-//	}
-//
-//	public void setTotalCount(Long totalCount) {
-//		this.totalCount = totalCount;
-//	}
+	public Long getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(Long totalCount) {
+		this.totalCount = totalCount;
+	}
 	
 	public String getKind() {
 		return kind;

@@ -17,7 +17,7 @@ public class BankBookService {
 	@Autowired
 	private BankBookDAO bankBookDAO;
 	
-	@Autowired
+	//@Autowired
 	private ServletContext servletContext;
 	
 	@Autowired

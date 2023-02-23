@@ -8,13 +8,18 @@
   <configuration>
   	<typeAliases>
   		<typeAlias type="com.iu.s1.product.ProductDTO" alias="ProductDTO"></typeAlias>
-  		<typeAlias type="java.lang.Long" alias="Long"></typeAlias>
   		<typeAlias type="com.iu.s1.member.MemberDTO" alias="MemberDTO"></typeAlias>
   		<typeAlias type="com.iu.s1.bankBook.BankBookDTO" alias="BankBookDTO"></typeAlias>
   		<typeAlias type="com.iu.s1.bankBook.BankBookImgDTO" alias="BankBookImgDTO"></typeAlias>
+  		<typeAlias type="com.iu.s1.bankBook.BankBookCommentDTO" alias="BankBookCommentDTO"></typeAlias>
+  		<typeAlias type="com.iu.s1.board.BbsDTO" alias="BbsDTO"></typeAlias>
+  		<typeAlias type="com.iu.s1.board.BoardDTO" alias="BoardDTO"></typeAlias>
+  		<typeAlias type="com.iu.s1.board.notice.NoticeDTO" alias="NoticeDTO"></typeAlias>
+  		<typeAlias type="com.iu.s1.board.qna.QnaDTO" alias="QnaDTO"></typeAlias>
   		<typeAlias type="com.iu.s1.member.RoleDTO" alias="RoleDTO"></typeAlias>
   		<typeAlias type="com.iu.s1.util.Pager" alias="Pager"></typeAlias>
   		
+  		<typeAlias type="java.lang.Long" alias="Long"></typeAlias>
     	</typeAliases>
   </configuration>
  
