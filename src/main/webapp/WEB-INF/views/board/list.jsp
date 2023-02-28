@@ -14,6 +14,9 @@
 <c:import url="../template/header.jsp"></c:import>
 <div class="container-fluid">
 	<div class="row">
+	<div class="row my-5">
+		<h1>${boardName} List</h1>
+	</div>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -24,7 +27,13 @@
 				<c:forEach items="${list}" var="dto">
 					<tr>
 					<td>${dto.num}</td>
-					<td><a href="./detail">${dto.title}</a></td>
+					<td>
+					<c:catch>
+					<!-- notice에는 depth가 없어서 Exception 발생 -->
+					<!--Exception 처리  catch  -->
+					<c:forEach begin="1" end="${dto.depth}">-></c:forEach>
+					</c:catch>
+					<a href="./detail?num=${dto.num}">${dto.title}</a></td>
 					<td>${dto.writer}</td>
 					<td>${dto.regDate}</td>
 					<td>${dto.hit}</td>
@@ -76,7 +85,7 @@
 					<select class="form-select" name="kind" id="kind" aria-label="Default select example">
 						<option value="title" ${pager.kind eq 'title'?'selected':''}>상품명</option>
 						<option value="contents" ${pager.kind eq 'writer'?'selected':''}>상품내용</option> 
-						<option value="writer"${pager.kind eq 'writer'?'selected':'' }>작성자</option> 
+						<option value="writer"${pager.kind eq 'writer'?'selected':''}>작성자</option> 
 						</select>
 				</div>
 				<div class="col-auto">
@@ -89,9 +98,16 @@
 			</form>
 		</div>
 	
+		<div class="row">
+			<a href="./add" class="btn btn-primary">글작성</a>
+		</div>
+	
 </div>
 
 <c:import url="../template/common_js.jsp"></c:import>
 <script src="../resources/js/pageing.js"></script>
+<script>
+	setData('${pager.search}')
+</script>
 </body>
 </html>

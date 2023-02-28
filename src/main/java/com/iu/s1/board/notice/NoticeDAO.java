@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.iu.s1.board.BbsDTO;
 import com.iu.s1.board.BoardDAO;
 import com.iu.s1.board.BoardDTO;
+import com.iu.s1.board.BoardFileDTO;
 import com.iu.s1.util.Pager;
 
 @Repository
@@ -34,7 +35,13 @@ public class NoticeDAO implements BoardDAO {
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO) throws Exception {
 		
-		return 0;
+		return sqlSession.insert(NAMESPACE+"setBoardAdd",bbsDTO);
+	}
+	
+	@Override
+	public int setBoardFileAdd(BoardFileDTO boardFileDTO) throws Exception {
+		
+		return sqlSession.insert(NAMESPACE+"setBoardFileAdd", boardFileDTO);
 	}
 
 	@Override
@@ -46,13 +53,24 @@ public class NoticeDAO implements BoardDAO {
 	@Override
 	public int setBoardDelete(BbsDTO bbsDTO) throws Exception {
 		
-		return 0;
+		return sqlSession.delete(NAMESPACE+"setBoardDlete", bbsDTO);
 	}
 
 	@Override
 	public BoardDTO getBoardDetail(BoardDTO boardDTO) throws Exception {
 		
-		return null;
+		return sqlSession.selectOne(NAMESPACE+"getBoardDetail", boardDTO);
+	}
+	
+	@Override
+	public List<BoardFileDTO> getBoardFileList(BbsDTO bbsDTO) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"getBoardFileList", bbsDTO);
+	}
+	
+	@Override
+	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception {
+		
+		return sqlSession.selectOne(NAMESPACE+"getBoardFileDetail", boardFileDTO);
 	}
 
 }

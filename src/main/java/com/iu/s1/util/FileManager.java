@@ -11,12 +11,22 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileManager {
 	
+	//File HDD에서 삭제
+	public boolean fileDelete(String path, String fileName) throws Exception{
+		File file = new File(path, fileName);
+		
+		return file.delete();
+		
+	}
+	
 	//File을 HDD에 저장
 	public String fileSave(MultipartFile multipartFile, String path)throws Exception{
 		//1. 어디에 저장할 것인가??
 		//   /resources/upload/bankBook/...
 		//2. 저장관리는 운영체제가 담당
 		File file = new File(path);
+		
+		
 		
 		//폴더가 존재하지 않으면 폴더 생성
 		if(!file.exists()) {

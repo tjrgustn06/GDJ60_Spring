@@ -5,7 +5,7 @@ import java.sql.Date;
 //전체 게시판 종류의 공통 요소를 모은 DTO
 public class BbsDTO {
 	private Long num;
-	private String contrnts;
+	private String contents;
 	private String writer;
 	private Date regDate;
 	
@@ -16,11 +16,11 @@ public class BbsDTO {
 	public void setNum(Long num) {
 		this.num = num;
 	}
-	public String getContrnts() {
-		return contrnts;
+	public String getContents() {
+		return contents;
 	}
-	public void setContrnts(String contrnts) {
-		this.contrnts = contrnts;
+	public void setContents(String contents) {
+		this.contents = contents;
 	}
 	public String getWriter() {
 		return writer;
