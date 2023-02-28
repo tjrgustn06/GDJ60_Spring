@@ -64,7 +64,7 @@ public class MemberController {
 		
 		return mv;
 	}
-	@RequestMapping(value="memberLogout", method = RequestMethod.GET)
+	@RequestMapping(value="memberlogout", method = RequestMethod.GET)
 	public ModelAndView getMemberLogout(HttpSession session) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();

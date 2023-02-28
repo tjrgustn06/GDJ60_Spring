@@ -37,6 +37,7 @@ public class MemberDAO {
 		
 		return sqlSession.update(NAMESPACE +"setMemberUpdate", memberDTO);
 	}
+	
 
 
 }

@@ -20,10 +20,12 @@
 		<div class="row">
 			<form action="./add" method="post" enctype="multipart/form-data">
 				<div class="mb-2 contrainer-fluid my-5">
-
+				
+				 <fieldset disabled>
 					<legend>작성자</legend>
-					<input type="txet" class="col-2" name="writer" id="writer">
+					<input type="txet" class="col-2" name="writer" id="writer" readonly value="${member.id}">
 				</div>
+				 </fieldset>
 
 				<div class="mb-3 contrainer-fluid">
 					<legend>제목</legend>

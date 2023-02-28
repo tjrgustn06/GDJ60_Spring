@@ -6,8 +6,8 @@ public class MemberDTO  {
 	
 	private String id;
 	private String pw;
-	private String membername;
-	private String memberphone;
+	private String memberName;
+	private String memberPhone;
 	private String email;
 	
 	private RoleDTO roleDTO;
@@ -32,17 +32,18 @@ public class MemberDTO  {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	public String getMembername() {
-		return membername;
+
+	public String getMemberName() {
+		return memberName;
 	}
-	public void setMembername(String membername) {
-		this.membername = membername;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
-	public String getMemberphone() {
-		return memberphone;
+	public String getMemberPhone() {
+		return memberPhone;
 	}
-	public void setMemberphone(String memberphone) {
-		this.memberphone = memberphone;
+	public void setMemberPhone(String memberPhone) {
+		this.memberPhone = memberPhone;
 	}
 	public String getEmail() {
 		return email;
