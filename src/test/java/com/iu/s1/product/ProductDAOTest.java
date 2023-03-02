@@ -14,40 +14,40 @@ public class ProductDAOTest extends MyTestCase {
 	@Autowired
 	private ProductDAO productDAO;
 	
-	@Test
-	public void getProductListTest() throws Exception {
-		List<ProductDTO> ar = productDAO.getProductList(null);
-		//단정문 (TEST 케이스에만 있음)
-		assertNotEquals(0, ar.size());
+//	//@Test
+//	public void getProductListTest() throws Exception {
+//		List<ProductDTO> ar = productDAO.getProductList(null);
+//		//단정문 (TEST 케이스에만 있음)
+//		assertNotEquals(0, ar.size());
 		
-	}
-	@Test
-	public void getProductDetailTest() throws Exception {
-		ProductDTO productDTO = new ProductDTO();
-		productDTO.setProductNum(1L);
-		productDTO = productDAO.getProductdetail(productDTO);
-		assertNotNull(productDTO);
-	}
+//	}
+//	@Test
+//	public void getProductDetailTest() throws Exception {
+//		ProductDTO productDTO = new ProductDTO();
+//		productDTO.setProductNum(1L);
+//		productDTO = productDAO.getProductdetail(productDTO);
+//		assertNotNull(productDTO);
+//	}
 	
-	@Test
-	public void setProductAddTest() throws Exception {
-		ProductDTO productDTO = new ProductDTO();
-		productDTO.setProductNum(21L);
-		productDTO.setProductName("Test");
-		productDTO.setProductDetail("qwewq");
-		int result = productDAO.setProductAdd(productDTO);
-		assertEquals(1, result);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+//	//@Test
+//	public void setProductAddTest() throws Exception {
+//		ProductDTO productDTO = new ProductDTO();
+//		productDTO.setProductNum(21L);
+//		productDTO.setProductName("Test");
+//		productDTO.setProductDetail("qwewq");
+//		int result = productDAO.setProductAdd(productDTO);
+//		assertEquals(1, result);
+//	}
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+

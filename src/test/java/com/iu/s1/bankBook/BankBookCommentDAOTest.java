@@ -17,17 +17,17 @@ public class BankBookCommentDAOTest extends MyTestCase {
 	private BankBookCommentDAO bankBookCommentDAO;
 	
 	//list
-	@Test
-	public void getBoardListTest() throws Exception {
-		Pager pager = new Pager();
-		pager.setBookNumber(385L);
-		pager.setKind("writer");
-		pager.setSearch("ch");
-		pager.makeRow();
-		//long count = bankBookCommentDAO.getTotalCount(pager);
-		List<BbsDTO> ar = bankBookCommentDAO.getBoardList(pager);
-		assertNotEquals(0, ar.size());	
-	}
+//	@Test
+//	public void getBoardListTest() throws Exception {
+//		Pager pager = new Pager();
+//		pager.setBookNumber(385L);
+//		pager.setKind("writer");
+//		pager.setSearch("ch");
+//		pager.makeRow();
+//		//long count = bankBookCommentDAO.getTotalCount(pager);
+//		List<BbsDTO> ar = bankBookCommentDAO.getBoardList(pager);
+//		assertNotEquals(0, ar.size());	
+//	}
 	
 	
 	

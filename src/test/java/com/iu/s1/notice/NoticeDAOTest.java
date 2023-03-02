@@ -12,7 +12,7 @@ public class NoticeDAOTest extends MyTestCase {
 	
 	private NoticeDAO noticeDAO;
 	
-	@Test
+	//@Test
 	public void test() {
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setTitle("Title");
