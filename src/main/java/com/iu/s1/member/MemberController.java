@@ -58,7 +58,7 @@ public class MemberController {
 		
 		if(memberDTO !=null) {
 		HttpSession session = request.getSession();
-		session.setAttribute("member", session);
+		session.setAttribute("member", memberDTO);
 		}
 		mv.setViewName("redirect:../");
 		
