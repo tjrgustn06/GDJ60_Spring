@@ -40,7 +40,7 @@
 
 	<c:import url="../template/common_js.jsp"></c:import>
 	<script type="text/javascript">
-		
+	document.getElementById("launch").click();
 	</script>
 </body>
 </html>
