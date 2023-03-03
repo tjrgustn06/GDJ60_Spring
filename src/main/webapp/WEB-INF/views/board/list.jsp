@@ -125,7 +125,7 @@
 <c:import url="../template/common_js.jsp"></c:import>
 <script src="../resources/js/pageing.js"></script>
 <script>
-	setDta('${pager.search}')
+	setData('${pager.search}')
 </script>
 </body>
 </html>

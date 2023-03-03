@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.iu.s1.board.BbsDAO;
 import com.iu.s1.board.BbsDTO;
 import com.iu.s1.board.BbsService;
+import com.iu.s1.board.BoardFileDTO;
 import com.iu.s1.util.Pager;
 
 @Service
@@ -31,9 +32,11 @@ public class BankBookCommentService implements BbsService {
 
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO, MultipartFile[] multipartFiles, HttpSession session) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+			int result = bankBookCommentDAO.setBoardAdd(bbsDTO);
+				
+			return result;
+		}
+
 
 	@Override
 	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {

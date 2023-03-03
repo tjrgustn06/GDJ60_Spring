@@ -35,7 +35,7 @@ public class BankBookCommentDAO implements BbsDAO {
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO) throws Exception {
 		
-		return 0;
+		return sqlSession.insert(NAMESPACE+"setBoardAdd", bbsDTO);
 	}
 
 	@Override

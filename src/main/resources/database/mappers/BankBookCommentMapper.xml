@@ -37,5 +37,14 @@
 	  )
 	  WHERE R BETWEEN #{startRow} AND ${lastRow}
 	  </select>
+	  
+	  <insert id="setBoardAdd" parameterType="BbsDTO">
+	  	INSERT INTO BANKBOOKCOMMENT (NUM, BOOKNUM, CONTENT, REGDATE, WRITER)
+	  	VALUES(BANKBOOKCOMMENT_SEQ.NEXTVAL,#{bookNum}, #{content}, SYSDATE, #{writer})
+	  </insert>
+	  
+	  
+	  
+	  
   	
   </mapper>
