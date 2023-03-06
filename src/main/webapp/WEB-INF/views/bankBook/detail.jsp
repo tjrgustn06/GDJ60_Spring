@@ -17,7 +17,7 @@
   <form>
   <fieldset disabled>
     <div class="mb-3">
-      <label for="${detail.bookNumber}" class="form-label">제품번호</label>     
+      <label for="${detail.bookNumber}" class="form-label">제품번호</label>
       <input type="text" id="${detail.bookNumber}" class="form-control" placeholder="${detail.bookNumber}">
     </div>
     <div class="mb-3">
@@ -71,8 +71,28 @@
       </div>
    
   </form>
-	
 
+<!-- Modal -->
+<div class="modal fade" id="contentsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a comment here" id="contents" style="height: 100px"></textarea>
+          <label for="floatingTextarea2">Comments</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-comment-num="" id="contentsConfirm">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
 	
 <c:import url="../template/common_js.jsp"></c:import>
 <script src="/resources/js/bankBookReply.js"></script>

@@ -2,6 +2,8 @@ const replyAdd = document.getElementById("replyAdd");
 const replyContents = document.getElementById("replyContents");
 const commentListResult = document.getElementById("commentListResult");
 //const pageLink = document.querySelectorAll(".page-link");
+const contentsConfirm = document.getElementById("contentsConfirm");
+const closeModal = document.getElementById("closeModal");
 
 
 replyAdd.addEventListener("click", function(){
@@ -27,7 +29,7 @@ replyAdd.addEventListener("click", function(){
  });
 });
 
-getList();
+getList(1);
 
 
 function getList(page){
@@ -35,24 +37,24 @@ function getList(page){
     let count=0;
 
     let xhttp = new XMLHttpRequest();
-    
-    xhttp.open("GET", "/bankBookComment/list?bookNumber="+replyAdd.getAttribute("data-book-bookNum")+"&page="+page);
-     
-    xhttp.send();
+
+    xhttp.open("GET", "/bankBookComment/list?bookNum="+replyAdd.getAttribute('data-book-bookNum')+"&page="+page);
+
     
     xhttp.addEventListener("readystatechange", function(){
-
-        if(this.readyState==4 && this.status==200){
-                console.log(this.responseText);
-                count++
-         }
+        if(this.readyState==4&&this.status==200){
+            commentListResult.innerHTML=this.responseText.trim();
+            count++;
+        }        
     })
- 
+    
+    xhttp.send();
 
-    //0이 출력: 비동기 방식이기 떄문
-    console.log("count :"+count);
+    //0이 출력 : 비동기 방식이기 때문
+    console.log("count : ", count);
 
 }
+
 //pageing
 commentListResult.addEventListener("click", function(e){
         let pageLink = e.target;
@@ -112,48 +114,35 @@ if(del.classList.contains("del")){
 commentListResult.addEventListener("click", function(e){
     let upd = e.target;
 if(upd.classList.contains("upd")){
-    //upd.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling
     let num = upd.getAttribute("data-comment-num");
     let contents = document.getElementById("contents"+num);
-
-    contents.firstChild.removeAttribute("readonly");
-    let btn = document.createElement("button");
-    let attr = document.createAttribute("class");
-    attr.value="btn btn-primary";
-    btn.setAttributeNode(attr);
-    contents.appendChild(btn);
-    attr = document.createTextNode("확인");
-    btn.appendChild(attr);
-
-    btn.addEventListener("click", function(){
-        console.log(contents.firstChild.value);
-        console.log(num);
-
-        let xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "/bankBookComment/update")
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("num="+num+"&contents="+contents.firstChild.value);
-
-        if(this.readyState==4 && this.status==200){
-            let result = this.responseText.trim();
-            if(result>0){
-                alert("댓글이 수정 되었습니다");
-                getList(1);
-            }else {
-                alert("수정에 실패 했습니다");
-                }
-            }
-    });
-
-    // console.log(contents);
-    // contents.innerHTML="<textarea>"+contents.innerHTML+"</textarea>";
+    let contnetsTextarea = document.getElementById("content"); //Modal textarea
+    contnetsTextarea.value=contents.innerText;
+   contentsConfirm.setAttribute("data-comment-num", num);
 }
     e.preventDefault();
 });
 
+contentsConfirm.addEventListener("click", function(){
+    console.log("Update Post");
+    let updateContents = document.getElementById("contents").value;
+    let num = contentsConfirm.getAttribute("data-comment-num");
 
-
-commentListResult.addEventListener("click", function(e){
-    let upd = e.target;
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/bankBookComment/delete");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("num="+num+"&contents="+updateContents);
+ 
+    if(this.readyState==4 && this.status==200){
+     let result = this.responseText.trim();
+     if(result>0){
+         alert("수정 성공");
+         getList(1);
+         closeModal.closest();
+     }else {
+         alert("수정 실패");
+         }
+     }
 
 });
+

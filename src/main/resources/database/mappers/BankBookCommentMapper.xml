@@ -51,7 +51,7 @@
 	  	UPDATE BANKBOOKCOMMENT SET CONTENTS=#{contents}
 	  	WHERE NUM={num}
 	  </update>
-	  
-	  
-  	
+	  	
+	  	
+  		
   </mapper>

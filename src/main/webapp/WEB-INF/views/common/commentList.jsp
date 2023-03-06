@@ -5,15 +5,12 @@
  <table>
  <c:forEach items="${list}" var="dto" >
  	<tr>
- 	<td id="contents${dto.num}">
-		<textarea rows="" cols="" readonly>${dto.contents}</textarea>
-		<button class="btn btn-primary upd" data-comment-num="${dto.num}">UPDATE</button>
-	</td>
+ 	<td id="contents${dto.num}">${dto.contents}</td>
  	<td>${dto.writer}</td>
  	<td>${dto.regDate}</td>
  		<td>
  	<c:if test="${member.id eq dto.writer}">
- 	<button class="btn btn-primary upd" data-comment-num="${dto.num}">UPDATE</button>
+ 	<button class="btn btn-primary upd" data-bs-toggle="modal" data-bs-target="#contentsModal">UPDATE</button>
 	</c:if>
  	</td>
  	
