@@ -45,6 +45,7 @@
 	<c:if test="${empty detail}">
 		<h3>존재하지 않는 상품입니다.</h3>
 		</c:if>
+   
 	<a class="btn btn-warning col-1" href="./update?bookNumber=${detail.bookNumber}">상품수정</a>
 	<a class="btn btn-info col-1" href="./list ">목록으로</a>
     <div class="my-5">
@@ -52,11 +53,23 @@
     </div>
 
    	 </div>
+     <div class="my-5" id="commentListResult">
 
-      <div class="mb-3">
-        <textarea class="form-control" id="replayContents" rows="3"></textarea>
-        <button class="btn btn-primary col-1" id="replayAdd" data-book-bookNum="${dto.bookNumber}">등록</button>
+     </div>
+
+
+
+      <div class="my-5">
+		
+        <div class="mb-3">
+          <textarea class="form-control" rows="3" id="replyContents"></textarea>
+        </div>
+        <div class="mb-3">
+          <button type="button" class="btn btn-primary" id="replyAdd" data-book-bookNum="${dto.bookNumber}">댓글작성</button>
+        </div>
+    
       </div>
+   
   </form>
 	
 

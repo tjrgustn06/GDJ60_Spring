@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,6 +41,26 @@ public class BankBookCommentController {
 		//bankBookCommentDTO.setWriter(memberDTO.getId());
 		bankBookCommentDTO.setWriter("ruby");
 		int result = bankBookCommentService.setBoardAdd(bankBookCommentDTO, null, null);
+		
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	@PostMapping("delete")
+	public ModelAndView setBoardDelete(BankBookCommentDTO bankBookCommentDTO, ModelAndView mv) throws Exception {
+		
+		int result = bankBookCommentService.setBoardDelete(bankBookCommentDTO, null);
+		
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	@PostMapping("update")
+	public ModelAndView setBoardUpdate(BankBookCommentDTO bankBookCommentDTO, ModelAndView mv)throws Exception{
+		
+		int result = bankBookCommentService.setBoardUpdate(bankBookCommentDTO);
 		
 		mv.addObject("result", result);
 		mv.setViewName("common/ajaxResult");
