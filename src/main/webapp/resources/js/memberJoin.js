@@ -7,7 +7,7 @@ const pwResult = document.getElementById("pwResult");
 const pwCheck = document.getElementById("pwCheck");
 const pwCheckResult = document.getElementById("pwCheckResult");
 
-const name = document.getElementById("name");
+const na = document.getElementById("na");
 const nameCResult = document.getElementById("nameCResult");
 
 const address = document.getElementById("address");
@@ -35,13 +35,39 @@ let checks = [false, false, false, false, false, false, false, false]
 
 //ID검증
 id.addEventListener("blur", function(){
+    //중복 검사
+    let xhttp = new XMLHttpRequest();
+
+    //url, method
+    xhttp.open("POST", "./memberIdCheck");
+
+    //header
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    //요청 발생 POST일 경우 parmater 전송
+    xhttp.send("id="+id.value);
+
+    //응답 처리
+    xhttp.addEventListener("readystatechange", function(){
+        if(this.readyState==4 && this.status==200){
+            if(this.responseText.trim==true){
+                idResult.innerHTML="사용 가능한 ID";
+            }else {
+                idResult.innerHTML="중복된 ID";
+              
+            }
+        if(this.readyState==4 && this.status!=200){
+        }
+    }
+});
+
     if(id.value.length != 0){
         idResult.innerHTML='정상적인 아이디 입니다'; 
        // idCheck=true; 
         checks[0] = true;
         idResult.classList.add("blueResult");
         idResult.classList.remove("redResult");
-    }else{
+    }else {
         console.log("비어 있음")
         idResult.innerHTML="ID는 필수 사항 입니다"
         //idCheck=false;
@@ -102,8 +128,8 @@ pwCheck.addEventListener("blur",function(){
     }
 })
 
-name.addEventListener("blur",function(){
-    if(name.value.length !=0){
+na.addEventListener("blur",function(){
+    if(na.value.length !=0){
         nameCResult.innerHTML='';
         //nameCheck=true;
         checks[4] = true;
@@ -140,7 +166,7 @@ phone.addEventListener("blur",function(){
         phoneResult.innerHTML='전화번호는 필수 입니다'
         checks[6] = false;
     }
-})
+});
 
 email.addEventListener("blur",function(){
     if(phone.value.length !=0){
@@ -152,19 +178,19 @@ email.addEventListener("blur",function(){
         emailResult.innerHTML='이메일은 필수 입니다'
         checks[7] = false;
     }
-})
+});
 
 //form 전송
 
 btn.addEventListener("click", function(){
-    // if(idCheck && pwLengthCheck && pwNullCheck && pwEquqlCheck && nameCheck && addressCheck && phoneCheck && emailCheck == true){
-    // frm.submit();
-    // }else{
-    //     alert("필수 사항을 입력하세요")
-    // }
-    if(!checks.includes(false)){
-        alert('회원가입 성공');
-    }else {
-        alert("필수 사항을 입력하세요")
-    }
-})
+        // if(idCheck && pwLengthCheck && pwNullCheck && pwEquqlCheck && nameCheck && addressCheck && phoneCheck && emailCheck == true){
+        // frm.submit();
+        // }else{
+        //     alert("필수 사항을 입력하세요")
+        // }
+        if (!checks.includes(false)) {
+            alert('회원가입 성공');
+        } else {
+            alert("필수 사항을 입력하세요");
+        }
+    });

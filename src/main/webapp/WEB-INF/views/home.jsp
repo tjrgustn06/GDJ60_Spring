@@ -41,10 +41,10 @@
 			</div>
 		</div>
 
-<div>
-	<h1>${member.name}</h1>
+<div class="contrainer-fluid my-5" >
 </div>
-	<c:import url="./template/common_js.jsp"></c:import>
+<%-- <c:import url="../template/common_js.jsp"></c:import>
+<script src="../common/noticeResult.jsp"></script> --%>
 </body>
 </html>
 

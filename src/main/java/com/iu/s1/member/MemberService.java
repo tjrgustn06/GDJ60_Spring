@@ -11,6 +11,21 @@ public class MemberService {
 		
 	@Autowired
 	private MemberDAO memberDAO;
+	
+	public boolean getMemberIdCheck(MemberDTO memberDTO)throws Exception {
+		
+		memberDTO = memberDAO.getMemberLogin(memberDTO);
+		
+		boolean check = true; //중복 아니면 true 중복이면 false
+		
+		if(memberDTO !=null) {
+			check = false;
+		}
+		return check;
+	}
+	
+	
+	
 		
 	public int setMemberJoin(MemberDTO memberDTO) throws Exception{
 		
@@ -25,7 +40,7 @@ public class MemberService {
 	MemberDTO result = memberDAO.getMemberLogin(memberDTO);
 	//result : ID와 일치하는 모든 정보
 	
-	//pw check	 
+	//pw check
 	if(result != null && memberDTO.getPw().equals(result.getPw())) {
 		memberDTO.setPw(null);
 		memberDTO.setRoleDTO(result.getRoleDTO());	
