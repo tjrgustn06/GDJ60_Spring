@@ -5,8 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<c:import url="../template/header.jsp"></c:import>
 <meta charset="UTF-8">
+<c:import url="../template/header.jsp"></c:import>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -93,7 +94,7 @@
     </div>
   </div>
 </div>
-	
+
 <c:import url="../template/common_js.jsp"></c:import>
 <script src="/resources/js/bankBookReply.js"></script>
 </body>

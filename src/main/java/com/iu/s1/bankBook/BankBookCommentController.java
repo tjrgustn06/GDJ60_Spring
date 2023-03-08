@@ -25,7 +25,7 @@ public class BankBookCommentController {
 	@Autowired
 	private BbsService bankBookCommentService;
 	
-	@RequestMapping(value = "list", method = RequestMethod.GET)
+	@GetMapping("list")
 	public ModelAndView getBoardList(ModelAndView mv, Pager pager)throws Exception{
 		
 		List<BbsDTO> ar = bankBookCommentService.getBoardList(pager);
@@ -39,7 +39,7 @@ public class BankBookCommentController {
 	public ModelAndView setBoardAdd(BankBookCommentDTO bankBookCommentDTO, HttpSession session, ModelAndView mv) throws Exception {
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		//bankBookCommentDTO.setWriter(memberDTO.getId());
-		bankBookCommentDTO.setWriter("ruby");
+		bankBookCommentDTO.setWriter(memberDTO.getId());
 		int result = bankBookCommentService.setBoardAdd(bankBookCommentDTO, null, null);
 		
 		mv.addObject("result", result);
