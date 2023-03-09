@@ -80,13 +80,13 @@ public class QnaService implements BoardService {
 		//qna Update
 		int result = qnaDAO.setBoardUpdate(bbsDTO);
 		//qnaFiles Delete
-		//qnaFiles Delete
 				if(fileNums != null) {
 					for(Long fileNum : fileNums) {
 						qnaDAO.setBoardFileDelete(fileNum);
 						
 					}
 				}
+				
 		//qnaFiles Insert
 		String realpath = session.getServletContext().getRealPath("resources/upload/qna");
 		System.out.println(realpath);
@@ -171,6 +171,10 @@ public class QnaService implements BoardService {
 		return qnaDAO.getBoardFileDetail(boardFileDTO);
 	}
 	
-	
+	public int setboardFileDelete(Long fileNum)throws Exception {
+		
+		//HDD에 파일 삭제
+		return qnaDAO.setBoardFileDelete(fileNum);
+	}
 	
 }
