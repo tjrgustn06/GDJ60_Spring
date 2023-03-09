@@ -49,7 +49,7 @@ $(".deleteCheck").click(function(){
        }else{
         if(count==5){
             console.log("idx :", idx);
-            idx--
+            idx--;
             $("#f"+(idx)).remove();
             return;
         }
