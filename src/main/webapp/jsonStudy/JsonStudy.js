@@ -2,10 +2,27 @@
 $("#btn").click(()=>{
     let productId = $("#productId").val();
 
-    $.get("https://dummyjson.com/products/"+productId, (repsonse)=>{
-        console.log(repsonse);
-        console.log(repsonse.title);
+    $.ajax({
+        type:'GET',
+        url:"https://dummyjson.com/products/"+productId,
+        success:function(response){
+            console.log(response);
+            console.log(typeof response);
+
+            response=JSON.parse(response);
+        }
     });
+
+    // $.get("https://dummyjson.com/products/"+productId, (repsonse)=>{
+    //     console.log(response);
+    //     console.log(repsonse.title);
+    //     alert(response);
+    //     let result = JSON.stringify(response);
+    //     console.log(result);
+    //     alert(result);
+    //     console.log(typeof result);
+    //     console.log(result.title);
+    // });
 });
 
 
